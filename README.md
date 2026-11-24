@@ -1,5 +1,7 @@
 # A nonrational four-polytope with fifteen vertices
 
+[![Palomar preflight](https://github.com/caiusdfolkerts/palomar-submissions/actions/workflows/fifteen-vertex.yml/badge.svg?branch=main)](https://github.com/caiusdfolkerts/palomar-submissions/actions/workflows/fifteen-vertex.yml)
+
 This project contains the full Lean4 formalisation of my paper *A nonrational four-polytope with fifteen vertices*. I've included the paper as [paper.pdf](paper.pdf).
 
 ## Verification
