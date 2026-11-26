@@ -2,8 +2,6 @@
 
 [![Palomar preflight](https://github.com/caiusdfolkerts/palomar-submissions/actions/workflows/fifteen-vertex.yml/badge.svg?branch=main)](https://github.com/caiusdfolkerts/palomar-submissions/actions/runs/45414389435)
 
-Lean 4 formalisation of Caius Folkerts’s paper *A nonrational 4-polytope with fifteen vertices*.
-
 ## Abstract
 
 We construct a convex 4-polytope with fifteen vertices whose combinatorial type is realisable over a subfield $K \subseteq \mathbb{R}$ if and only if $\sqrt{5} \in K$. This more than halves the upper bound of thirty-three vertices established by Richter-Gebert in 1996 for the least number of vertices of a nonrational 4-polytope. By extending facets of a free sum of two triangles, we construct pairs of polygonal faces whose common edges project to intersections of lines in Perles’ nine-point configuration. The entire configuration is recovered in every realisation by a single projection from an edge of the polytope.
