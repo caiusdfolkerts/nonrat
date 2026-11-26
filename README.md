@@ -1,24 +1,46 @@
-# A nonrational four-polytope with fifteen vertices
+# A nonrational 4-polytope with fifteen vertices
 
-[![Palomar preflight](https://github.com/caiusdfolkerts/palomar-submissions/actions/workflows/fifteen-vertex.yml/badge.svg?branch=main)](https://github.com/caiusdfolkerts/palomar-submissions/actions/workflows/fifteen-vertex.yml)
+[![Palomar preflight](https://github.com/caiusdfolkerts/palomar-submissions/actions/workflows/fifteen-vertex.yml/badge.svg?branch=main)](https://github.com/caiusdfolkerts/palomar-submissions/actions/runs/45414389435)
 
-This project contains the full Lean4 formalisation of my paper *A nonrational four-polytope with fifteen vertices*. I've included the paper as [paper.pdf](paper.pdf).
+Lean 4 formalisation of Caius Folkerts’s paper *A nonrational 4-polytope with fifteen vertices*.
 
-## Verification
+## Abstract
 
-If you have Elan and Git installed, run these commands from this directory.
+We construct a convex 4-polytope with fifteen vertices whose combinatorial type is realisable over a subfield $K \subseteq \mathbb{R}$ if and only if $\sqrt{5} \in K$. This more than halves the upper bound of thirty-three vertices established by Richter-Gebert in 1996 for the least number of vertices of a nonrational 4-polytope. By extending facets of a free sum of two triangles, we construct pairs of polygonal faces whose common edges project to intersections of lines in Perles’ nine-point configuration. The entire configuration is recovered in every realisation by a single projection from an edge of the polytope.
+
+## Formalisation
+
+| Result in the current manuscript | Lean declaration |
+| --- | --- |
+| Theorem 1.1. Existence and characterisation of the realisation fields | [theoremOne](Fifteen.lean#L64) |
+| Proposition 3.1. The explicit construction, its faces and the projected rays | [propositionTwo](Fifteen/Projection.lean#L86), [projected_rays](Fifteen/PaperCoordinates.lean#L48) |
+| The explicit polytope has no rational realisation | [not_rationallyRealizable](Fifteen.lean#L73) |
+
+The [included manuscript](paper.pdf) uses the earlier numbering Theorem 1 and Proposition 2.
+
+## Building
+
+With [elan](https://github.com/leanprover/elan) installed, run from the repository root.
 
 ```sh
 lake exe cache get
 lake build
 ```
 
-## Main results
+## Verification
 
-Here's a guide to the main results and their Lean4 declarations. The declarations in the table use the namespace `Papers.Nonrational.Fifteen`.
+[Click here for the verification record](https://github.com/caiusdfolkerts/palomar-submissions/actions/runs/45414389435). Palomar checked that the [proof](Solution.lean#L21) matches the independently written [statement](Challenge.lean#L107) for the explicit fifteen-vertex construction and its realisation fields. The statement file uses a deliberate placeholder for that comparison.
 
-| Paper result | Lean declaration | Conclusion |
-| --- | --- | --- |
-| Theorem 1 | [`theoremOne`](Fifteen.lean#L64) | There is a convex four-polytope with fifteen vertices whose combinatorial type is realisable over a real subfield $K$ if and only if $\sqrt{5}\in K$. |
-| Proposition 2 | [`propositionTwo`](Fifteen/Projection.lean#L86) | The fifteen specified vertices give the seven polygonal faces, five coordinate facets and projection edge used in the construction. |
-| Nonrationality | [`not_rationallyRealizable`](Fifteen.lean#L73) | The face lattice of this particular polytope has no rational realisation. |
+The proofs use only Lean’s standard axioms `propext`, `Classical.choice`, and `Quot.sound`. After building, you can reproduce the axiom audit with the command below.
+
+```sh
+lake env lean --stdin <<'LEAN'
+import Solution
+
+#print axioms Papers.Nonrational.Fifteen.theoremOne
+#print axioms Papers.Nonrational.Fifteen.propositionTwo
+#print axioms Papers.Nonrational.Fifteen.projected_rays
+#print axioms Papers.Nonrational.Fifteen.not_rationallyRealizable
+#print axioms Papers.Nonrational.Fifteen.explicitFifteenVertexField
+LEAN
+```
