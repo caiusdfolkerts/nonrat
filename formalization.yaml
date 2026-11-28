@@ -12,7 +12,7 @@ project:
 sources:
   - title: A nonrational four-polytope with fifteen vertices
     authors: [Caius Folkerts]
-    id: "Caius Folkerts, A nonrational four-polytope with fifteen vertices (2026), manuscript included as paper.pdf"
+    id: "Caius Folkerts, A nonrational four-polytope with fifteen vertices (2026)"
     type: paper
     location: Theorem 1 and the explicit construction in Proposition 2
     relationship: formalizes

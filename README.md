@@ -14,8 +14,6 @@ We construct a convex 4-polytope with fifteen vertices and no rational realisati
 | Proposition 3.1. The explicit construction, its faces and the projected rays | [propositionTwo](Fifteen/Projection.lean#L86), [projected_rays](Fifteen/PaperCoordinates.lean#L48) |
 | The explicit polytope has no rational realisation | [not_rationallyRealizable](Fifteen.lean#L73) |
 
-The [included manuscript](paper.pdf) uses the earlier numbering Theorem 1 and Proposition 2.
-
 ## Building
 
 With [elan](https://github.com/leanprover/elan) installed, run from the repository root.
